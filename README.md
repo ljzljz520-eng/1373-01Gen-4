@@ -1,57 +1,137 @@
-# React + TypeScript + Vite
+# 星途漫游 · 天文馆参观路线指南
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 循此苦旅，以达天际 · Ad Astra Per Aspera
 
-Currently, two official plugins are available:
+沉浸式星空主题的天文馆参观路线指引页面，为参观者提供三条精选路线，串联四大核心展区，帮助观众高效规划参观行程。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ 功能特性
 
-## Expanding the ESLint configuration
+### 🌌 三条精选路线
+| 路线 | 适合人群 | 总时长 | 展区顺序 |
+|------|---------|-------|---------|
+| 👨‍👩‍👧 亲子探索路线 | 亲子家庭 | 约2小时 | 球幕影院 → 陨石展 → 文创店 → 望远镜区 |
+| 🔬 深度科普路线 | 科普爱好者 | 约2小时 | 陨石展 → 望远镜区 → 球幕影院 → 文创店 |
+| ⚡ 半日经典路线 | 短时观光客 | 约2小时 | 球幕影院 → 陨石展 → 望远镜区 → 文创店 |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 📍 四大核心展区
+| 展区 | 预计停留 | 亮点 |
+|------|---------|------|
+| 🌌 球幕影院 | 30-45分钟 | 8K超高清球幕、环绕立体声效、《宇宙漫游》影片 |
+| ☄️ 陨石展 | 20-30分钟 | 火星陨石真品、互动触摸体验、46亿年标本 |
+| 🔭 望远镜区 | 25-40分钟 | 专业望远镜、太阳观测、天文学家讲解 |
+| 🛍️ 文创商店 | 15-20分钟 | 限定周边、陨石饰品、DIY手作区 |
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 🎯 交互亮点
+- **当前位置标记**：点击展区卡片即可标记"我在这里"，自动高亮当前节点
+- **下一站快速定位**：系统自动识别下一站，箭头指示器 + 状态标签
+- **底部悬浮导航**：手机端固定毛玻璃导航栏，一键前往下一站
+- **进度可视化**：已参观（青色勾选）/ 当前（橙色发光）/ 下一站（箭头指示）状态清晰
+- **路线进度条**：底部栏实时显示参观进度
+
+### 🎨 沉浸式设计
+- 动态星空背景（60+ 随机星点闪烁动画）
+- 玻璃拟态卡片 + 极光青/星云粉/陨石橙主题色系
+- Orbitron 科技感展示字体 + Noto Sans SC 易读正文字体
+- 完美响应式：桌面/平板/手机端全适配
+- 丰富微交互：脉冲发光、悬浮上浮、渐次淡入动画
+
+## 🛠️ 技术栈
+
+- **框架**: React 18 + TypeScript
+- **构建**: Vite 6
+- **样式**: Tailwind CSS 3 + 自定义 CSS 动画
+- **图标**: Lucide React
+- **路由**: React Router DOM
+- **状态管理**: React Hooks (useState)
+
+## 📦 安装与运行
+
+```bash
+# 安装依赖
+pnpm install
+
+# 启动开发服务器
+pnpm run dev
+
+# 构建生产版本
+pnpm run build
+
+# 类型检查
+pnpm run check
+
+# 代码检查
+pnpm lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 项目结构
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
 ```
+src/
+├── App.tsx                 # 根组件 & 路由配置
+├── main.tsx               # 入口文件
+├── index.css              # 全局样式 + Tailwind + 星空动画
+├── pages/
+│   └── Home.tsx           # 主页面（状态管理 & 组件组装）
+├── components/
+│   ├── Starfield.tsx      # 动态星空背景
+│   ├── HeroBanner.tsx     # 顶部横幅标题区
+│   ├── RouteTabs.tsx      # 三条路线切换 Tab
+│   ├── RouteOverview.tsx  # 当前路线概览信息
+│   ├── Timeline.tsx       # 垂直时间轴展区列表
+│   ├── ZoneCard.tsx       # 单个展区详情卡片
+│   └── FloatingNav.tsx    # 手机端底部悬浮导航栏
+├── data/
+│   └── routes.ts          # 路线 & 展区 Mock 数据
+└── types/
+    └── index.ts           # TypeScript 类型定义
+```
+
+## 🎯 核心数据模型
+
+```typescript
+// 展区节点
+interface ExhibitionZone {
+  id: string;
+  name: string;
+  duration: string;        // 展示用：约30-45分钟
+  durationMinutes: number; // 计算用：40
+  description: string;
+  highlights: string[];
+  icon: string;
+  themeColor: string;
+}
+
+// 参观路线
+interface RouteInfo {
+  id: 'family' | 'deep' | 'halfday';
+  name: string;
+  totalDuration: string;   // 总时长：节点时间之和 + 转场时间
+  zones: string[];         // 展区 ID 顺序排列
+  // ...其他属性
+}
+```
+
+## ⏱️ 时间计算说明
+
+四条路线均包含 **4 个展区节点**，节点停留时间基准：
+- 球幕影院：40分钟（取30-45分钟中间值）
+- 陨石展：25分钟（取20-30分钟中间值）
+- 望远镜区：30分钟（取25-40分钟中间值）
+- 文创店：15分钟（取15-20分钟中间值）
+
+**节点合计**：40 + 25 + 30 + 15 = **110分钟**
+**含转场步行**：110 + 约10分钟 = **120分钟 ≈ 2小时**
+
+因此三条路线的总时长统一标注为"约2小时"，确保与节点停留时间完全匹配。
+
+## 📱 响应式断点
+
+| 断点 | 设备 | 适配策略 |
+|------|------|---------|
+| `< 640px` | 手机 | 单列布局、底部悬浮导航常驻、触控区域 ≥ 44px |
+| `640-1024px` | 平板 | 宽度自适应、卡片单侧排列 |
+| `> 1024px` | 桌面 | 最大宽度 1200px 居中、精致间距 |
+
+---
+
+⭐ 愿星辰永远指引您的探索之路 · Starfield Planetarium

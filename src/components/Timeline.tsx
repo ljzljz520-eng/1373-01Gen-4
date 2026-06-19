@@ -1,4 +1,4 @@
-import type { RouteInfo, RouteId } from '@/types';
+import type { RouteInfo } from '@/types';
 import { getZoneById } from '@/data/routes';
 import ZoneCard from './ZoneCard';
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { RouteId } from '@/types';
-import { routes, getRouteById } from '@/data/routes';
+import { getRouteById } from '@/data/routes';
 import Starfield from '@/components/Starfield';
 import HeroBanner from '@/components/HeroBanner';
 import RouteTabs from '@/components/RouteTabs';
